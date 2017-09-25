@@ -432,7 +432,7 @@ function($window, $document, taDOM){
 			
 			range.insertNode(frag);
 			if(lastNode){
-				api.setSelectionToElementEnd(lastNode);
+				api.setSelectionAfterElement(lastNode);
 			}
 		}
 	};

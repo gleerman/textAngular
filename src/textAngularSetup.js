@@ -549,23 +549,9 @@ angular.module('textAngularSetup', [])
 		iconclass: 'fa fa-indent',
 		tooltiptext: taTranslations.indent.tooltip,
 		action: function(){
-			return this.$editor().wrapSelection("indent", null);
-		},
-		activeState: function(){
-			return this.$editor().queryFormatBlockState('blockquote');
+			return this.$editor().performInsert("insertHtml", "<tab />");
 		},
 		commandKeyCode: 'TabKey'
-	});
-	taRegisterTool('outdent', {
-		iconclass: 'fa fa-outdent',
-		tooltiptext: taTranslations.outdent.tooltip,
-		action: function(){
-			return this.$editor().wrapSelection("outdent", null);
-		},
-		activeState: function(){
-			return false;
-		},
-		commandKeyCode: 'ShiftTabKey'
 	});
 	taRegisterTool('italics', {
 		iconclass: 'fa fa-italic',

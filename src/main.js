@@ -129,6 +129,10 @@ textAngular.directive("textAngular", [
 							scope.displayElements.text[0].focus();
 						}
 					},
+          performInsert: function(command, opt){
+						// catch errors like FF erroring when you try to force an undo with nothing done
+						_taExecCommand(command, false, opt, scope.defaultTagAttributes);
+					},
 					showHtml: scope.$eval(attrs.taShowHtml) || false
 				});
 				// setup the options from the optional attributes

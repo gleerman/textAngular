@@ -867,7 +867,7 @@ function($window, $document, taDOM){
 			
 			range.insertNode(frag);
 			if(lastNode){
-				api.setSelectionToElementEnd(lastNode);
+				api.setSelectionAfterElement(lastNode);
 			}
 		}
 	};
@@ -2044,6 +2044,10 @@ textAngular.directive("textAngular", [
 							// You still have focus on the text/html input it just doesn't show up
 							scope.displayElements.text[0].focus();
 						}
+					},
+          performInsert: function(command, opt){
+						// catch errors like FF erroring when you try to force an undo with nothing done
+						_taExecCommand(command, false, opt, scope.defaultTagAttributes);
 					},
 					showHtml: scope.$eval(attrs.taShowHtml) || false
 				});
